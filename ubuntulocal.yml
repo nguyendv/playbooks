@@ -1,0 +1,22 @@
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+  - name: Setup emacs
+    apt:
+      name: emacs
+      state: latest
+    become: yes
+  - name: Setup texlive, texlive-latex-extra, and dvipng for latex preview in Emacs (C-c C-x C-l)
+    apt:
+      name:
+      - texlive
+      - texlive-latex-extra
+      - dvipng
+      state: latest
+    become: yes
+  - name: Setup neovim
+    apt:
+      name: neovim
+      state: latest
+    become: yes
+      
